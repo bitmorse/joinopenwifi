@@ -1,10 +1,24 @@
-# joinopenwifi
+# joinwifi (aka joinopenwifi)
 
-automatically join open and internet connected wireless networks on linux
+automatically join open and known secure wireless networks on linux
 
 ## how it works
 
-it uses `iwconfig` and `iwlist` to scan for nearby networks. then one at a time (in order of signal strength) it tries to connect to one and then checks to see if it can resolve the dns for `google.com`. if it can't then it moves on to the next network until it find one that is open and online.
+it uses `iwconfig` and `iwlist` to scan for nearby networks. then one at a time (in order of signal strength) it tries to connect to one and then checks to see if it can resolve the dns for `google.com`. if it can't then it moves on to the next network until it find one that is open and online. 
+
+before joining open networks, it looks for `known-secure-networks.json` which contains
+
+```
+[{
+	"essid": "best wifi ever",
+	"passphrase": "thisisaWPAkey"
+}, {
+	"essid": "some secure wifi",
+	"passphrase": "31337h4xx0r"
+}]
+```
+and tries to connect if any are around. it uses `wireless-tools/wpa_supplicant` to achieve this.
+
 
 ## installation
 
