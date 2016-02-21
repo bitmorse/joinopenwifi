@@ -1,29 +1,32 @@
 {
-  "name": "joinopenwifi",
-  "version": "0.0.4",
-  "description": "automatically join open and internet connect wireless networks on linux",
+  "name": "joinwifi",
+  "version": "0.0.5",
+  "description": "automatically join open and known secure wireless networks on linux",
   "main": "index.js",
   "bin": {
     "joinopenwifi": "bin.js"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/maxogden/joinopenwifi.git"
+    "url": "http://github.com/bitmorse/joinopenwifi.git"
   },
   "keywords": [
     "wifi",
     "iwconfig",
     "iwlist",
     "wlan",
-    "raspberrypi"
+    "raspberrypi",
+    "wireless-tools"
   ],
   "dependencies": {
-    "iwlist": "0.0.5"
+    "iwlist": "0.0.5",
+    "wireless-tools":"0.15.0"
   },
   "author": {
     "name": "Max Ogden",
     "email": "max@maxogden.com"
   },
+  "contributors": ["Sam Sulaimanov <sam@bitmorse.com>"],
   "license": "BSD",
   "engine": {
     "node": ">=0.6.0"
