@@ -2,13 +2,13 @@ var iwlist = require('iwlist')
 var wpa_supplicant = require('wireless-tools/wpa_supplicant');
 var exec = require('child_process').exec;
 
-function JoinOpenWifi(iface, delay, silent) {
+function JoinOpenWifi(iface, delay, knownSecureNetworksJSONFilePath) {
 
-  this.knownSecureNetworks = require('../known-secure-networks.json');
+  this.knownSecureNetworks = require((knownSecureNetworksJSONFilePath || '../known-secure-networks.json'));
 
   this.iface = (iface || 'wlan0')
   this.tried = {}
-  this.silent = silent
+  this.silent = false
   this.delay = delay || 0
   this.iw = iwlist(this.iface, this.delay, this.silent)
   // wait for some time so that linux can try to associate with a known network first

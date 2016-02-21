@@ -40,9 +40,9 @@ sure multiple instances dont spawn (like a process lock file)
 
 ## usage
 
-`sudo joinopenwifi <interface> <delay (milliseconds)> <verbose>`
+`sudo joinopenwifi <interface> <delay (milliseconds)> <./path/to/known-secure-networks.json>`
 
-optional arguments default to: `wlan0 0 true`
+optional arguments default to: `wlan0 0 ../known-secure-networks.json`
 
 there is also a programmatic API. you can just require('joinopenwifi') and read index.js
 
